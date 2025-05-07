@@ -7,6 +7,7 @@
 - [Risk Assessment Report](https://github.com/noahscheffey/Risk-Assessment)
 - [Incident Report - Analyzing Network Attack](https://github.com/noahscheffey/Incident-Report---Analyzing-Network-Attack-SYN-Flood-)
 - [File Hashing Analysis with Linux Commands](https://github.com/noahscheffey/File-Hashing-Analysis-with-Linux-Commands)
+- [Decrypting Caesar Cipher with Linux Commands](https://github.com/noahscheffey/Decrypting-Caesar-Cipher-with-Linux-Commands)
 
 <h2> 📜 Certifications:</h2>
 
