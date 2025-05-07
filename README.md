@@ -5,6 +5,7 @@
 <h2>👨‍💻 Cybersecurity Projects:</h2>
 
 - [Risk Assessment Report](https://github.com/noahscheffey/Risk-Assessment)
+- [Incident Report - Analyzing Network Attack (SYN Flood)](https://github.com/noahscheffey/Incident-Report---Analyzing-Network-Attack-SYN-Flood-)
 
 <h2> 📜 Certifications:</h2>
 
