@@ -4,7 +4,7 @@
 
 <h2>👨‍💻 Cybersecurity Projects:</h2>
 
-- <b>
+- [Risk Assessment Report](https://github.com/noahscheffey/Risk-Assessment)
 
 <h2> 📜 Certifications:</h2>
 
