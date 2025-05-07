@@ -8,6 +8,7 @@
 - [Incident Report - Analyzing Network Attack](https://github.com/noahscheffey/Incident-Report---Analyzing-Network-Attack-SYN-Flood-)
 - [File Hashing Analysis with Linux Commands](https://github.com/noahscheffey/File-Hashing-Analysis-with-Linux-Commands)
 - [Decrypting Caesar Cipher with Linux Commands](https://github.com/noahscheffey/Decrypting-Caesar-Cipher-with-Linux-Commands)
+- [Investigating Failed SSH Logins with Splunk](https://github.com/noahscheffey/Investigating-Failed-SSH-Logins-with-Splunk)
 
 <h2> 📜 Certifications:</h2>
 
