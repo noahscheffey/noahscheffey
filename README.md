@@ -1,4 +1,4 @@
-<h1>Noah Scheffey's IT and Cybersecurity Project Portfolio 🔐</h1>
+# <a href="https://www.linkedin.com/in/noahscheffey/">Noah Scheffey's</a> IT and Cybersecurity Project Portfolio 🔐
 
 I am a passionate cybersecurity professional dedicated to strengthening security operations through hands-on technical analysis. My projects focus on practical vulnerability management, threat detection, and process optimization within corporate infrastructure. Explore my repository to see how I translate complex security challenges into actionable defense strategies.
 
