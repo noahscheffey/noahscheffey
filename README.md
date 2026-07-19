@@ -8,7 +8,7 @@ I am a passionate cybersecurity professional dedicated to strengthening security
 
 - **[Vulnerability Management Program Implementation](https://github.com/noahscheffey/vulnerability-management-program/tree/main)**
 
-<h2>👨‍💻 Cybersecurity Projects:</h2>
+<h2>👨‍💻 Misc. Cybersecurity Projects:</h2>
 
 - [Risk Assessment Report](https://github.com/noahscheffey/Risk-Assessment)
 - [Incident Report - Analyzing Network Attack](https://github.com/noahscheffey/Incident-Report---Analyzing-Network-Attack-SYN-Flood-)
