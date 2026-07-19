@@ -162,7 +162,7 @@ Two MDE live-response investigation packages are collected from the same host --
 | Ports 3306 and 3389 still listening on `0.0.0.0` | Both attack surfaces remain open 75 hours post-breach | T1595 Active Scanning |
 | No persistence artifacts added | No rogue Run keys, tasks, or services | N/A (exculpatory) |
 
-[DFIR Comparison Report](https://docs.google.com/document/d/1xlk_rIsg3Ri_3pJ_2kBLPShrvPwJEbmiy7r3NTcWzcQ/edit?usp=sharing)
+[DFIR Comparison Report](https://docs.google.com/document/d/1xlk_rIsg3Ri_3pJ_2kBLPShrvPwJEbmiy7r3NTcWzcQ/edit?tab=t.lmkq5dxmzy9p)
 
 ---
 
