@@ -34,7 +34,7 @@ _**Completion State:**_ The full attack chain is reconstructed, a formal inciden
 
 MySQL authentication logs (`MySQLAudit_CL`) are analyzed to determine whether the database was accessed by an unauthorized actor. A KQL query separates genuine successful logins from the noise of failed authentication attempts, identifies attacker source IPs, and pinpoints the exact moment credentials were compromised.
 
-**Key finding:** `213.209.159.115` conducted a ~460-attempt automated spray over 2.5 hours. The `root` account was cracked at **2026-07-15 02:08 UTC**. The first post-crack query (`SELECT @@max_allowed_packet`) is an automated tool fingerprint, confirming no human was at the keyboard at breach time. Five minutes later, a clean operator IP (`91.217.249.32`) connected -- the classic spray-and-pivot pattern.
+**Key finding:** `213.209.159.115` conducted a ~460-attempt automated spray over 2.5 hours. The `root` account was cracked at **2026-07-15 02:08 UTC**. The first post-crack query (`SELECT @@max_allowed_packet`) is an automated tool fingerprint, confirming no human was at the keyboard at breach time. Five minutes later, a clean operator IP (`91.217.249.32`) connected in a classic spray-and-pivot pattern.
 
 ```kusto
 // MySQL auth successes after compromise time
@@ -75,8 +75,8 @@ Query logs are analyzed to reconstruct exactly what the attacker did inside the 
 **Key findings:**
 - Full table dumps of `credentials`, `customers`, `orders`, and `payments` from `corp_03` -- confirmed data exfiltration
 - `CREATE TABLE RECOVER_YOUR_DATA` + `INSERT` of ransom note containing BTC address and contact
-- `DROP DATABASE corp_03`, `sakila`, `world` -- complete destruction of three databases
-- `REVOKE INSERT, UPDATE, DELETE, DROP, CREATE ON *.* FROM root@'%'` -- intentional lockout of recovery access
+- `DROP DATABASE corp_03`, `sakila`, `world`, resulting in the complete destruction of three databases
+- `REVOKE INSERT, UPDATE, DELETE, DROP, CREATE ON *.* FROM root@'%'` demonstrating intentional lockout of recovery access
 
 ```kusto
 // DB destruction and ransom note window
@@ -98,13 +98,13 @@ MySQLAudit_CL
 
 ### Phase 3 -- Defender OS Layer Analysis
 
-In parallel with the MySQL attack, Defender Advanced Hunting telemetry reveals a second, independent attack against the host's exposed RDP port (3389). Multiple automated bots brute-forced the Windows `administrator` account. Three separate source IPs successfully cracked the credential on the same day -- a strong indicator the password was in a common wordlist.
+In parallel with the MySQL attack, Defender Advanced Hunting telemetry reveals a second, independent attack against the host's exposed RDP port (3389). Multiple automated bots brute-forced the Windows `administrator` account. Three separate source IPs successfully cracked the credential on the same day. This generally indicates the password was in a common wordlist.
 
 **Key findings:**
 - `administrator` cracked by `80.66.83.80` at 03:06 Jul 16, then re-cracked by `197.156.112.253` and `187.149.111.178`
 - `141.98.80.88` established a **RemoteInteractive** (full RDP desktop) session at 17:05 Jul 16
-- Administrator profile did not exist at baseline -- newly created during attacker session, confirming interactive presence
-- Zero malicious processes, file drops, Run keys, or scheduled tasks observed -- attacker had access but did not deploy a payload
+- Administrator profile did not exist at baseline.Created during attacker session, confirming interactive presence
+- Zero malicious processes, file drops, Run keys, or scheduled tasks observed. Attacker had access but did not deploy a payload
 
 ```kusto
 // RDP brute-force summary by source IP
@@ -127,7 +127,7 @@ DeviceLogonEvents
 
 `DeviceNetworkEvents` are queried to answer the most critical open question: what did the attacker do on the network during their interactive RDP session? All 57 network events from the administrator session window are cross-referenced against the full attacker IP list.
 
-**Key finding:** All 57 connections used ports 80 or 443 exclusively and resolved to Microsoft or CDN infrastructure. Zero matches to any known attacker IP. No C2 beaconing, no data exfiltration, no tool downloads observed. The session appears to have been GUI exploration -- the attacker landed an interactive desktop but did not execute a payload before the collection window closed.
+**Key finding:** All 57 connections used ports 80 or 443 exclusively and resolved to Microsoft or CDN infrastructure. Zero matches to any known attacker IP. No C2 beaconing, no data exfiltration, no tool downloads observed. The session appears to have been GUI exploration. The attacker landed an interactive desktop but did not execute a payload before the collection window closed.
 
 ```kusto
 let MyDevice = "corp-na03-ido2";
@@ -148,7 +148,7 @@ DeviceNetworkEvents
 
 ### Phase 5 -- DFIR Investigation Package Comparison
 
-Two MDE live-response investigation packages are collected from the same host -- one pre-breach (2026-07-14) and one post-breach (2026-07-18) -- and compared forensically across every standard artifact category: autoruns, services, scheduled tasks, processes, network connections, users/groups, prefetch, and temp directories.
+Two MDE live-response investigation packages are collected from the same host. One pre-breach (2026-07-14) and one post-breach (2026-07-18), and compared forensically across every standard artifact category: autoruns, services, scheduled tasks, processes, network connections, users/groups, prefetch, and temp directories.
 
 **Methodology:** Each artifact file is diffed programmatically across both packages. Changes are classified as ADDED, REMOVED, CHANGED, or UNCHANGED, then assessed as benign or suspicious.
 
@@ -188,7 +188,7 @@ A formal incident report written in accordance with NIST SP 800-61r2, integratin
 
 ### Phase 7 -- Eradication and Recovery
 
-Following isolation via MDE "Isolate device," eradication and recovery are performed. Because both the VM and MySQL Server were compromised, the recommended path is to destroy the VM and restore the database from a known-good backup. The steps below reflect the alternative approach taken -- hardening the existing system in place -- for environments where destroying the VM is not feasible.
+Following isolation via MDE "Isolate device," eradication and recovery are performed. Because both the VM and MySQL Server were compromised, the recommended path is to destroy the VM and restore the database from a known-good backup. The steps below reflect the alternative approach taken, hardening the existing system in place for environments where destroying the VM is not feasible.
 
 **Eradication and recovery steps completed:**
 
