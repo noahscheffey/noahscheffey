@@ -6,6 +6,12 @@ _**Inception State:**_ A suspicious host is flagged. No investigation has been p
 
 _**Completion State:**_ The full attack chain is reconstructed, a formal incident report is produced, MDE investigation packages are forensically compared pre vs. post, and all eradication and recovery steps are completed.
 
+<img width="1111" height="471" alt="Screenshot 2026-07-19 at 8 39 31 PM" src="https://github.com/user-attachments/assets/c53dde3d-f665-4ae5-9194-6655d2636476" />
+<img width="1110" height="628" alt="Screenshot 2026-07-19 at 8 41 52 PM" src="https://github.com/user-attachments/assets/ee41e7cf-43fb-4e46-b852-265a0e9c5900" />
+<img width="1111" height="287" alt="Screenshot 2026-07-19 at 8 40 22 PM" src="https://github.com/user-attachments/assets/73864d74-2f58-4bae-9b2f-4f8f5a1a5b49" />
+
+[Attack Map JSON](https://docs.google.com/document/d/1tuy7b_cb9mMjMe6QPwz5Cw1E5vBTdYK0gyaApRtz848/edit?usp=sharing)
+
 ---
 
 # Technology Utilized
