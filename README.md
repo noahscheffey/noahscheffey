@@ -10,7 +10,7 @@ I am a passionate cybersecurity professional dedicated to strengthening security
 
 **🚨 Threat Hunting and Security Operations**
 
-- [Cyber Defense Final Report](https://github.com/noahscheffey/noahscheffey/blob/main/cyber_defense_report.md)
+- [Cyber Defense Final Report](https://github.com/noahscheffey/cyber_defense_threat_hunting/blob/main/cyber_defense_report.md)
 
 **👨‍💻 Misc. Cybersecurity Projects**
 
