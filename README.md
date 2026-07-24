@@ -11,6 +11,7 @@ I am a passionate cybersecurity professional dedicated to strengthening security
 **🚨 Threat Hunting and Security Operations**
 
 - [Cyber Defense Final Report](https://github.com/noahscheffey/cyber_defense_threat_hunting/blob/main/cyber_defense_report.md)
+- [Threat Hunt / Incident Report - AI Prompt Injection to Domain Compromise](https://github.com/noahscheffey/cyber_defense_threat_hunting/blob/main/GF-INC-2026-0704_incident-report.md)
 
 **👨‍💻 Misc. Cybersecurity Projects**
 
